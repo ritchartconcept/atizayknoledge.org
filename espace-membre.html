@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mon espace — Atizay Knowledge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="assets/icon/favicon_io/android-chrome-512x512.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/membre.css">
+</head>
+
+<body>
+
+<div class="wrap">
+  <header>
+    <a href="index.html" class="logo">Atizay Knowledge</a>
+    <nav>
+      <a href="index.html#guides">Guides</a>
+      <a href="#" class="actif">Mon espace</a>
+      <a href="login.html" id="deconnexion">Déconnexion</a>
+      <button id="toggle-theme" class="btn-theme" aria-label="Activer le mode sombre">🌙</button>
+      <div class="avatar">FR</div>
+    </nav>
+  </header>
+
+  <div class="bienvenue">
+    <div>
+      <h1>Bienvenue, Fritzner</h1>
+      <p>Voici un aperçu de ton activité sur Atizay Knowledge.</p>
+    </div>
+    <span class="badge-statut">Contributeur fondateur</span>
+  </div>
+
+  <!-- Les valeurs ci-dessous sont des données d'exemple.
+       À remplacer par des requêtes Supabase filtrées sur l'utilisateur connecté. -->
+  <div class="stats">
+    <div class="stat-card">
+      <div class="stat-label">Guides publiés</div>
+      <div class="stat-valeur">3</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">En attente de validation</div>
+      <div class="stat-valeur">1</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Vues cumulées</div>
+      <div class="stat-valeur corail">842</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Revenus générés</div>
+      <div class="stat-valeur vert">0 $</div>
+    </div>
+  </div>
+
+  <section class="bloc">
+    <div class="bloc-header">
+      <h2>Mes guides</h2>
+      <a href="#" class="btn btn-primary">+ Proposer un guide</a>
+    </div>
+
+    <div class="table-guides">
+      <div class="ligne-guide entete">
+        <span>Titre</span>
+        <span>Catégorie</span>
+        <span>Statut</span>
+        <span>Vues</span>
+      </div>
+      <div class="ligne-guide">
+        <span class="titre-guide">Comment fixer le prix de sa première illustration</span>
+        <span>Business</span>
+        <span><span class="statut-pill statut-publie">Publié</span></span>
+        <span>412</span>
+      </div>
+      <div class="ligne-guide">
+        <span class="titre-guide">Structurer une facture simple pour un client</span>
+        <span>Business</span>
+        <span><span class="statut-pill statut-publie">Publié</span></span>
+        <span>298</span>
+      </div>
+      <div class="ligne-guide">
+        <span class="titre-guide">Les grands mouvements de l'art visuel haïtien</span>
+        <span>Histoire</span>
+        <span><span class="statut-pill statut-publie">Publié</span></span>
+        <span>132</span>
+      </div>
+      <div class="ligne-guide">
+        <span class="titre-guide">Négocier un contrat avec une ONG internationale</span>
+        <span>Business</span>
+        <span><span class="statut-pill statut-attente">En attente</span></span>
+        <span>—</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloc">
+    <div class="bloc-header">
+      <h2>À explorer</h2>
+      <a href="index.html#guides" class="voir-tout">Voir tous les guides →</a>
+    </div>
+
+    <a href="guide-detail.html"><div class="cartes-explorer">
+      <div class="carte-explorer">
+        <div class="cat-tag">Techniques</div>
+        <h3>Colorier en numérique avec peu de moyens</h3>
+      </div></a>
+      <a href="guide-detail.html"><div class="carte-explorer">
+        <div class="cat-tag">Contexte local</div>
+        <h3>Travailler avec des coupures d'électricité/internet</h3>
+      </div></a>
+      <a href="guide-detail.html"><div class="carte-explorer">
+        <div class="cat-tag">Portrait</div>
+        <h3>Portrait d'un(e) artiste qui a marqué le secteur</h3>
+      </div></a>
+    </div>
+  </section>
+
+</div>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/membre.js"></script>
+
+<script>
+// --- Dark mode ---
+  const bouton = document.getElementById('toggle-theme');
+  if (bouton) {
+    const racine = document.documentElement;
+
+    const themeSauvegarde = localStorage.getItem('theme');
+    if (themeSauvegarde === 'dark') {
+      racine.setAttribute('data-theme', 'dark');
+      bouton.textContent = '☀️';
+    }
+
+    bouton.addEventListener('click', function () {
+      const estSombre = racine.getAttribute('data-theme') === 'dark';
+      if (estSombre) {
+        racine.removeAttribute('data-theme');
+        bouton.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      } else {
+        racine.setAttribute('data-theme', 'dark');
+        bouton.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guides pratiques — Atizay Knowledge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="assets/icon/favicon_io/android-chrome-512x512.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/guides.css">
+</head>
+
+<body>
+
+<div class="wrap">
+  <header>
+    <a href="index.html" class="logo">Atizay Knowledge</a>
+    <nav>
+      <a href="guides.html" class="actif">Guides</a>
+      <a href="index.html#metiers">Métiers</a>
+      <a href="login.html">Se connecter</a>
+      <button id="toggle-theme" class="btn-theme" aria-label="Activer le mode sombre">🌙</button>
+    </nav>
+  </header>
+</div>
+
+<section class="entete-guides">
+  <div class="wrap">
+    <h1>Guides pratiques</h1>
+    <p>Techniques, contexte local, histoire de l'art et compétences business écrits par la communauté d'artistes visuels haïtiens.</p>
+
+    <div class="barre-recherche">
+      <input type="text" id="recherche-guide" placeholder="Rechercher un guide...">
+    </div>
+  </div>
+</section>
+
+<section class="filtres">
+  <div class="wrap">
+    <div class="filtres-liste" id="filtres-liste">
+      <button class="filtre-btn actif" data-categorie="tous">Tous</button>
+      <button class="filtre-btn" data-categorie="techniques">Techniques</button>
+      <button class="filtre-btn" data-categorie="contexte-local">Contexte local</button>
+      <button class="filtre-btn" data-categorie="histoire">Histoire de l'art</button>
+      <button class="filtre-btn" data-categorie="business">Business</button>
+      <button class="filtre-btn" data-categorie="portraits">Portraits</button>
+    </div>
+  </div>
+</section>
+
+<section class="grille-section">
+  <div class="wrap">
+
+    <!-- Message affiché s'il n'y a aucun résultat après filtre/recherche -->
+    <p class="aucun-resultat" id="aucun-resultat" style="display:none;">
+      Aucun guide ne correspond à ta recherche.
+    </p>
+
+    <!-- Les cartes de guides sont générées automatiquement par js/guides.js
+         à partir de la liste "guidesDemo" (ou plus tard, d'une vraie requête Supabase). -->
+    <div class="guides-grille" id="guides-grille"></div>
+
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>Atizay Knowledge</span>
+    <span>Contact · À propos</span>
+  </footer>
+</div>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guides-data.js"></script>
+<script src="js/guides.js"></script>
+
+<script>
+  // --- Dark mode ---
+  const bouton = document.getElementById('toggle-theme');
+  if (bouton) {
+    const racine = document.documentElement;
+
+    const themeSauvegarde = localStorage.getItem('theme');
+    if (themeSauvegarde === 'dark') {
+      racine.setAttribute('data-theme', 'dark');
+      bouton.textContent = '☀️';
+    }
+
+    bouton.addEventListener('click', function () {
+      const estSombre = racine.getAttribute('data-theme') === 'dark';
+      if (estSombre) {
+        racine.removeAttribute('data-theme');
+        bouton.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      } else {
+        racine.setAttribute('data-theme', 'dark');
+        bouton.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

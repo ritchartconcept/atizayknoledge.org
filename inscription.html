@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Créer un compte — Atizay Knowledge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="assets/icon/favicon_io/android-chrome-512x512.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/inscription.css">
+</head>
+
+<body>
+
+<div class="wrap">
+  <header>
+    <a href="index.html" class="logo">Atizay Knowledge</a>
+    <a href="index.html" class="back">← Retour à l'accueil</a>
+    <button id="toggle-theme" class="btn-theme" aria-label="Activer le mode sombre">🌙</button>
+  </header>
+</div>
+
+<div class="inscription">
+
+  <div class="inscription-visuel">
+    <h2>Rejoins la communauté d'artistes visuels haïtiens</h2>
+    <ul class="avantages">
+      <li>Compte gratuit, pour toujours</li>
+      <li>Propose des guides et gagne en visibilité</li>
+      <li>Accès à tout le contenu participatif</li>
+      <li>Ouvre la porte au contenu premium rémunéré</li>
+    </ul>
+  </div>
+
+  <div class="inscription-form">
+    <div class="form-box">
+      <h1>Créer un compte gratuit</h1>
+      <p class="sous-titre">Rejoins Atizay Knowledge en quelques minutes.</p>
+
+      <!-- Message d'erreur : caché par défaut, affiché en JS si l'inscription échoue -->
+      <div class="erreur" id="erreur-inscription">
+        Un compte existe déjà avec cette adresse email.
+      </div>
+
+      <form id="form-inscription">
+        <div class="champ">
+          <label for="nom">Nom complet</label>
+          <input type="text" id="nom" name="nom" required placeholder="Ton nom et prénom">
+        </div>
+
+        <div class="champ">
+          <label for="email">Adresse email</label>
+          <input type="email" id="email" name="email" required placeholder="toi@exemple.com">
+        </div>
+
+        <div class="champ">
+          <label for="discipline">Discipline artistique</label>
+          <select id="discipline" name="discipline" required>
+            <option value="" disabled selected>Choisis ta discipline principale</option>
+            <option value="illustration">Illustration</option>
+            <option value="bd">Bande dessinée</option>
+            <option value="animation2d">Animation 2D</option>
+            <option value="animation2d">Art 3D</option>
+            <option value="graffiti">Graffiti / art urbain</option>
+            <option value="design">Design graphique</option>
+            <option value="autre">Concept art</option>
+          </select>
+        </div>
+
+        <div class="champ-ligne">
+          <div class="champ">
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="password" required placeholder="••••••••">
+          </div>
+          <div class="champ">
+            <label for="password2">Confirmer</label>
+            <input type="password" id="password2" name="password2" required placeholder="••••••••">
+          </div>
+        </div>
+        <p class="aide-champ" style="margin-top:-10px; margin-bottom:18px;">8 caractères minimum</p>
+
+        <div class="champ-checkbox">
+          <input type="checkbox" id="conditions" name="conditions" required>
+          <label for="conditions" style="font-weight:400; margin:0;">
+            J'accepte les <a href="/conditions-utilisation.html">conditions d'utilisation</a> et la <a href="/politique.html">politique de confidentialité</a> d'Atizay Knowledge.
+          </label>
+        </div>
+
+        <button type="submit" class="btn-submit">Créer mon compte</button>
+      </form>
+
+      <p class="lien-connexion">
+        Déjà un compte ? <a href="login.html">Se connecter</a>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/inscription.js"></script>
+
+<script>
+  // --- Dark mode ---
+  const bouton = document.getElementById('toggle-theme');
+  if (bouton) {
+    const racine = document.documentElement;
+
+    const themeSauvegarde = localStorage.getItem('theme');
+    if (themeSauvegarde === 'dark') {
+      racine.setAttribute('data-theme', 'dark');
+      bouton.textContent = '☀️';
+    }
+
+    bouton.addEventListener('click', function () {
+      const estSombre = racine.getAttribute('data-theme') === 'dark';
+      if (estSombre) {
+        racine.removeAttribute('data-theme');
+        bouton.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      } else {
+        racine.setAttribute('data-theme', 'dark');
+        bouton.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

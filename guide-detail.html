@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide — Atizay Knowledge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="assets/icon/favicon_io/android-chrome-512x512.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/guide-detail.css">
+</head>
+
+<body>
+
+<div class="wrap">
+  <header>
+    <a href="index.html" class="logo">Atizay Knowledge</a>
+    <nav>
+      <a href="guides.html" class="actif">Guides</a>
+      <a href="index.html#metiers">Métiers</a>
+      <a href="login.html">Se connecter</a>
+      <button id="toggle-theme" class="btn-theme" aria-label="Activer le mode sombre">🌙</button>
+    </nav>
+  </header>
+</div>
+
+<div class="wrap">
+
+  <!-- Affiché si l'id du guide dans l'adresse n'existe pas -->
+  <div class="introuvable" id="introuvable" style="display:none;">
+    <h1>Guide introuvable</h1>
+    <p>Ce guide n'existe pas ou n'est plus disponible.</p>
+    <a href="guides.html" class="btn btn-primary">← Retour aux guides</a>
+  </div>
+
+  <div id="guide-contenu" style="display:none;">
+
+    <a href="guides.html" class="retour-liste">← Tous les guides</a>
+
+    <div class="guide-entete">
+      <span class="guide-cat" id="guide-categorie"></span>
+      <h1 id="guide-titre"></h1>
+      <p class="guide-resume" id="guide-resume"></p>
+      <div class="guide-meta">
+        <span class="guide-auteur">
+          <span class="mini-avatar" id="guide-avatar"></span>
+          <span id="guide-auteur-nom"></span>
+        </span>
+        <span id="guide-vues"></span>
+      </div>
+    </div>
+
+    <div class="guide-layout">
+
+      <!-- Colonne gauche : liste des modules (mini-cours) -->
+      <aside class="guide-sommaire">
+        <div class="sommaire-titre">Modules</div>
+        <div class="progression">
+          <div class="progression-barre" id="progression-barre"></div>
+        </div>
+        <ol class="sommaire-liste" id="sommaire-liste"></ol>
+      </aside>
+
+      <!-- Colonne droite : contenu du module actif -->
+      <main class="guide-module">
+        <div class="module-numero" id="module-numero"></div>
+        <h2 id="module-titre"></h2>
+
+        <div id="module-blocs"></div>
+
+        <div class="module-navigation">
+          <button class="btn btn-secondary" id="btn-precedent">← Module précédent</button>
+          <button class="btn btn-primary" id="btn-suivant">Module suivant →</button>
+        </div>
+      </main>
+
+    </div>
+  </div>
+
+  <footer>
+    <span>Atizay Knowledge</span>
+    <span>Contact · À propos</span>
+  </footer>
+</div>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/guides-data.js"></script>
+<script src="js/guide-detail.js"></script>
+
+<script>
+  // --- Dark mode ---
+  const bouton = document.getElementById('toggle-theme');
+  if (bouton) {
+    const racine = document.documentElement;
+
+    const themeSauvegarde = localStorage.getItem('theme');
+    if (themeSauvegarde === 'dark') {
+      racine.setAttribute('data-theme', 'dark');
+      bouton.textContent = '☀️';
+    }
+
+    bouton.addEventListener('click', function () {
+      const estSombre = racine.getAttribute('data-theme') === 'dark';
+      if (estSombre) {
+        racine.removeAttribute('data-theme');
+        bouton.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      } else {
+        racine.setAttribute('data-theme', 'dark');
+        bouton.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

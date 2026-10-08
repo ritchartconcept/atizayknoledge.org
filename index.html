@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atizay Knowledge — Le savoir de l'art visuel haïtien concu par Fritzner Richard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="assets/icon/favicon_io/android-chrome-512x512.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main-page.css">
+</head>
+
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="logo">Atizay Knowledge</div>
+    <nav>
+      <a href="#guides">Guides</a>
+      <a href="#comment">Comment ça marche</a>
+      <a href="/login.html">Se connecter</a>
+      <button id="toggle-theme" class="btn-theme" aria-label="Activer le mode sombre">🌙</button>
+    </nav>
+  </header>
+</div>
+
+<section class="hero">
+
+   <!-- <div class="hero-video-wrap">
+     Un seul <video>, dont on change la source en JS quand chaque vidéo se termine.
+         Liste tes fichiers dans le tableau "videos" du script plus bas.
+    <video class="hero-video" id="hero-video" autoplay muted playsinline poster="ton-image-de-secours.jpg"></video>
+    <div class="hero-overlay"></div>
+  </div> -->
+
+  <div class="hero-slideshow" id="hero-slideshow">
+    <!-- Chaque image est superposée aux autres (position absolue en CSS).
+         Le JS plus bas les fait apparaître/disparaître une par une en boucle. -->
+    <img src="https://placehold.co/1200x400/1B2A4C/FAF3E7?text=Image+1" class="slide actif" alt="">
+    <img src="https://placehold.co/1200x400/E63946/FAF3E7?text=Image+2" class="slide" alt="">
+    <img src="https://placehold.co/1200x400/E9B44C/1A1A1A?text=Image+3" class="slide" alt="">
+    <img src="https://placehold.co/1200x400/3A7D5C/FAF3E7?text=Image+4" class="slide" alt="">
+  </div>
+
+  <div class="hero-texte">
+    <h1>Le savoir de l'art visuel haïtien, écrit par ceux qui le pratiquent</h1>
+    <p>Techniques, contexte local, histoire de l'art et compétences commerciales un savoir gratuit et participatif, construit par et pour les artistes visuels d'Haïti.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn btn-primary">Découvrir les guides</a>
+      <a href="#" class="btn btn-secondary">Contribuer un guide</a>
+    </div>
+  </div>
+
+</section>
+
+<section class="probleme">
+  <div class="wrap">
+    <h2>La transmission du savoir dans l'art visuel reste informelle</h2>
+    <div class="probleme-grid">
+      <div>
+        <p>Les compétences commerciales fixer un prix, facturer, négocier s'apprennent rarement, faute de ressources adaptées au contexte haïtien.</p>
+      </div>
+      <div>
+        <p>Le savoir circule de bouche à oreille, dispersé, jamais centralisé nulle part pour la prochaine génération d'artistes.</p>
+      </div>
+      <div>
+        <p>L'histoire et la valeur de l'art visuel restent peu documentées et peu valorisées publiquement en haïti.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="comment" id="comment">
+  <div class="wrap">
+    <h2>Deux façons d'apprendre</h2>
+    <div class="comment-cols">
+      <div class="col-card">
+        <h3>Guides gratuits et participatifs</h3>
+        <p>Écrits par la communauté d'artistes elle-même : techniques, contexte local, histoire de l'art visuel. Accessibles à tous, sans compte requis.</p>
+      </div>
+      <div class="col-card">
+        <h3>Contenu premium approfondi</h3>
+        <p>Packs PDF téléchargeables, templates de contrats et factures, formations avancées produits par des artistes expérimentés, rémunérés à 65% des ventes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="metiers" id="metiers">
+  <div class="wrap">
+    <h2>Les métiers de l'art visuel</h2>
+    <p>Un aperçu des disciplines couvertes par Atizay Knowledge chaque métier a ses propres techniques, son propre marché et ses propres défis.</p>
+
+    <div class="metiers-grid">
+
+      <div class="metier-card">
+        <img src="https://placehold.co/480x360/1B2A4C/FAF3E7?text=Illustrateur" alt="Illustrateur">
+        <div class="metier-card-texte">
+          <h3>Illustration</h3>
+          <p>Illustration éditoriale, jeunesse, publicitaire et personnages pour clients locaux et internationaux.</p>
+        </div>
+      </div>
+
+      <div class="metier-card">
+        <img src="https://placehold.co/480x360/E63946/FAF3E7?text=B%C3%A9d%C3%A9iste" alt="Bédéiste">
+        <div class="metier-card-texte">
+          <h3>Bande désinée</h3>
+          <p>Écriture visuelle, mise en page et narration séquentielle pour la bande dessinée.</p>
+        </div>
+      </div>
+
+      <div class="metier-card">
+        <img src="https://placehold.co/480x360/E9B44C/1A1A1A?text=Animateur+2D" alt="Animateur 2D">
+        <div class="metier-card-texte">
+          <h3>Animation 2D</h3>
+          <p>Animation de personnages et de scènes pour la vidéo, la publicité et le contenu éducatif.</p>
+        </div>
+      </div>
+
+      <div class="metier-card">
+        <img src="https://placehold.co/480x360/1A1A1A/FAF3E7?text=Graffeur" alt="Graffeur">
+        <div class="metier-card-texte">
+          <h3>Graffiti / art urbain</h3>
+          <p>Fresques murales, art urbain et projets communautaires ou institutionnels à grande échelle.</p>
+        </div>
+      </div>
+
+      <div class="metier-card">
+        <img src="https://placehold.co/480x360/3A7D5C/FAF3E7?text=Designer+Graphique" alt="Designer graphique">
+        <div class="metier-card-texte">
+          <h3>Design graphique</h3>
+          <p>Identité visuelle, supports de communication et design pour marques et organisations.</p>
+        </div>
+      </div>
+
+      <div class="metier-card">
+        <img src="https://placehold.co/480x360/1B2A4C/E9B44C?text=Concept+Artist" alt="Concept artist">
+        <div class="metier-card-texte">
+          <h3>Concept art</h3>
+          <p>Création d'univers visuels pour le jeu vidéo, l'animation et les projets narratifs.</p>
+        </div>
+      </div>
+
+      <div class="metier-card">
+        <img src="https://placehold.co/480x360/1B2A4C/E9B44C?text=Art+3D" alt="Art 3D">
+        <div class="metier-card-texte">
+          <h3>Art 3D</h3>
+          <p>Création d'univers visuels pour le jeu vidéo, l'animation et les projets narratifs.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="guides" id="guides">
+  <div class="wrap">
+    <h2>Les premiers guides</h2>
+    <div class="guides-grid">
+      <div class="guide-card">
+        <a href="guide-detail.html"><div class="guide-cat">Techniques</div>
+        <h3>Dessiner un personnage à partir de formes simples</h3>
+      </div></a>
+      <div class="guide-card">
+        <a href="guide-detail.html"><div class="guide-cat">Contexte local</div>
+        <h3>Où trouver du matériel d'art fiable en Haïti</h3>
+      </div></a>
+      <div class="guide-card">
+        <a href="guide-detail.html"><div class="guide-cat">Histoire de l'art</div>
+        <h3>Les grands mouvements de l'art visuel haïtien</h3>
+      </div></a>
+      <div class="guide-card">
+        <a href="guide-detail.html"><div class="guide-cat">Business</div>
+        <h3>Comment fixer le prix de sa première illustration</h3>
+      </div></a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="cta-final">
+    <div class="cta-box">
+      <h2>Tu es artiste visuel ? 
+        <br>Fais partie des premiers contributeurs.</h2>
+      <a href="#" class="btn btn-primary">Proposer un guide</a>
+    </div>
+  </section>
+
+  <footer>
+    <!-- LOGO a gauche -->
+    <span>&copy; 2026 Atizay knoledge · Haïti</span>
+
+    <!-- Liens au centre -->
+    <nav class="footer-links">
+      <a href="https://www.instagram.com/noukat_studios/" class="social-link"><img src="assets/icon/Icon_social_media-ig.svg" alt="logo IG" width="40"></a>
+      <a href="https://www.facebook.com/noukatstudios/" class="social-link"><img src="assets/icon/facebook-app-round-icon-01.svg" alt="logo FB" width="34"></a>
+      <a href="https://www.linkedin.com/company/noukat-studios/?viewAsMember=true" class="social-link"><img src="assets/icon/Icon_social_media-linkedin.svg" alt="logo linkedin" width="40"></a>
+      <a href="https://wa.me/c/50938604335" class="social-link"><img src="assets/icon/Icon_social_media-whatsapp.svg" alt="logo whatsapp" width="40"></a>
+    </nav>
+
+    <!-- Copy a droite -->
+    <span>
+      <a class="legal-content" href="/conditions-utilisation.html"><p class="footer-copy">
+        conditions d'utilisation
+        <!--
+          &copy; = le symbole copyright ©
+          C'est une entité HTML spéciale.
+        -->
+      </p></a>
+    </span>
+  </footer>
+  
+</div>
+
+<script>
+  // --- Slideshow d'images ---
+  const slides = document.querySelectorAll('#hero-slideshow .slide');
+  if (slides.length > 0) {
+    let indexSlide = 0;
+    setInterval(function () {
+      slides[indexSlide].classList.remove('actif');
+      indexSlide = (indexSlide + 1) % slides.length;
+      slides[indexSlide].classList.add('actif');
+    }, 4000);
+  }
+
+  // --- Dark mode ---
+  const bouton = document.getElementById('toggle-theme');
+  if (bouton) {
+    const racine = document.documentElement;
+
+    const themeSauvegarde = localStorage.getItem('theme');
+    if (themeSauvegarde === 'dark') {
+      racine.setAttribute('data-theme', 'dark');
+      bouton.textContent = '☀️';
+    }
+
+    bouton.addEventListener('click', function () {
+      const estSombre = racine.getAttribute('data-theme') === 'dark';
+      if (estSombre) {
+        racine.removeAttribute('data-theme');
+        bouton.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      } else {
+        racine.setAttribute('data-theme', 'dark');
+        bouton.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>

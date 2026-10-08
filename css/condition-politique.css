@@ -1,0 +1,152 @@
+
+  :root {
+    --indigo: #1B2A4C;
+    --corail: #E63946;
+    --sable: #FAF3E7;
+    --or: #E9B44C;
+    --encre: #1A1A1A;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Work Sans', sans-serif;
+    color: var(--encre);
+    background: var(--sable);
+    line-height: 1.6;
+  }
+
+  h1, h2 {
+    font-family: 'Fraunces', serif;
+    line-height: 1.2;
+  }
+
+  .wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header (identique aux autres pages) */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    border-bottom: 1px solid #e8ddc8;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--indigo);
+    text-decoration: none;
+  }
+
+  header a.back {
+    color: var(--encre);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  /* Page légale : colonne de texte centrée et limitée en largeur
+     pour rester confortable à lire. C'est cette structure (.legal-page)
+     qu'on réutilise telle quelle pour la page de politique de confidentialité —
+     seul le <title>, le <h1> et le contenu à l'intérieur de .legal-content changent. */
+  .legal-page {
+    padding: 56px 0 96px;
+  }
+
+  .legal-intro {
+    max-width: 720px;
+  }
+
+  .legal-page h1 {
+    font-size: 2.1rem;
+    color: var(--indigo);
+  }
+
+  .maj {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #777;
+  }
+
+  .note-juridique {
+    margin-top: 24px;
+    background: #fdf1de;
+    border: 1px solid var(--or);
+    border-radius: 6px;
+    padding: 16px 20px;
+    font-size: 0.9rem;
+    color: #6b5218;
+  }
+
+  .legal-content {
+    max-width: 720px;
+    margin-top: 40px;
+  }
+
+  .legal-content h2 {
+    font-size: 1.25rem;
+    color: var(--indigo);
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+
+  .legal-content h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal-content p {
+    margin-bottom: 14px;
+    color: #333;
+  }
+
+  .legal-content ul {
+    margin: 0 0 14px 22px;
+    color: #333;
+  }
+
+  .legal-content li {
+    margin-bottom: 6px;
+  }
+
+  .legal-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 0.92rem;
+  }
+
+  .legal-content th, .legal-content td {
+    text-align: left;
+    padding: 10px 12px;
+    border: 1px solid #e0d5bb;
+  }
+
+  .legal-content th {
+    background: white;
+    color: var(--indigo);
+  }
+
+  .legal-content a {
+    color: var(--corail);
+  }
+
+  footer {
+    padding: 32px 0 48px;
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #e8ddc8;
+    margin-top: 40px;
+  }
+
+  footer a {
+    color: #666;
+    text-decoration: none;
+    margin-left: 16px;
+  }

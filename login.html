@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Connexion — Atizay Knowledge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="assets/icon/favicon_io/android-chrome-512x512.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+
+<div class="wrap">
+  <header>
+    <a href="index.html" class="logo">Atizay Knowledge</a>
+    <a href="index.html" class="back">← Retour à l'accueil</a>
+    <button id="toggle-theme" class="btn-theme" aria-label="Activer le mode sombre">🌙</button>
+  </header>
+</div>
+
+<div class="connexion">
+
+  <div class="connexion-visuel">
+    <h2>Le savoir de l'art visuel haïtien, écrit par ceux qui le pratiquent</h2>
+    <p>Connecte-toi pour proposer un guide, suivre tes contributions ou accéder au contenu premium.</p>
+  </div>
+
+  <div class="connexion-form">
+    <div class="form-box">
+      <h1>Connexion</h1>
+      <p class="sous-titre">Content de te revoir.</p>
+
+      <!-- Message d'erreur : caché par défaut, affiché en JS si la connexion échoue -->
+      <div class="erreur" id="erreur-connexion">
+        Email ou mot de passe incorrect.
+      </div>
+
+      <form id="form-connexion">
+        <div class="champ">
+          <label for="email">Adresse email</label>
+          <input type="email" id="email" name="email" required placeholder="toi@exemple.com">
+        </div>
+
+        <div class="champ">
+          <label for="password">Mot de passe</label>
+          <input type="password" id="password" name="password" required placeholder="••••••••">
+        </div>
+
+        <div class="champ-options">
+          <label class="remember">
+            <input type="checkbox" name="remember">
+            Se souvenir de moi
+          </label>
+          <a href="#">Mot de passe oublié ?</a>
+        </div>
+
+        <button type="submit" class="btn-submit">Se connecter</button>
+      </form>
+
+      <div class="separateur">ou</div>
+
+      <p class="lien-inscription">
+        Pas encore de compte ? <a href="/inscription.html">Créer un compte gratuit</a>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/login.js"></script>
+
+<script>
+  // --- Dark mode ---
+  const bouton = document.getElementById('toggle-theme');
+  if (bouton) {
+    const racine = document.documentElement;
+
+    const themeSauvegarde = localStorage.getItem('theme');
+    if (themeSauvegarde === 'dark') {
+      racine.setAttribute('data-theme', 'dark');
+      bouton.textContent = '☀️';
+    }
+
+    bouton.addEventListener('click', function () {
+      const estSombre = racine.getAttribute('data-theme') === 'dark';
+      if (estSombre) {
+        racine.removeAttribute('data-theme');
+        bouton.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+      } else {
+        racine.setAttribute('data-theme', 'dark');
+        bouton.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
