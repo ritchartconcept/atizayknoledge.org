@@ -42,10 +42,15 @@
     color: var(--indigo);
   }
 
+    nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
   nav a {
     color: var(--encre);
     text-decoration: none;
-    margin-left: 28px;
     font-size: 0.95rem;
   }
 
@@ -400,5 +405,46 @@ html[data-theme="dark"] .btn-theme .icone-soleil { display: block; }
     .comment-cols { grid-template-columns: 1fr; }
     .guides-grid { grid-template-columns: 1fr 1fr; }
     .metiers-grid { grid-template-columns: 1fr 1fr; }
-    nav { display: none; }
+        nav a { display: none; }
   }
+
+/* ===== Dark mode ===== */
+html[data-theme="dark"] {
+  --sable: #14202E;
+  --encre: #F2ECDD;
+  --indigo: #6C8FC7;
+}
+
+html[data-theme="dark"] body {
+  background: #0F1824;
+}
+
+html[data-theme="dark"] .hero p,
+html[data-theme="dark"] .col-card p,
+html[data-theme="dark"] .metiers > .wrap > p,
+html[data-theme="dark"] .metier-card p,
+html[data-theme="dark"] footer,
+html[data-theme="dark"] .legal-content {
+  color: #B9B3A5;
+}
+
+html[data-theme="dark"] .col-card,
+html[data-theme="dark"] .metier-card,
+html[data-theme="dark"] .guide-card {
+  background: #1B2734;
+  border-color: #2C3A4A;
+}
+
+html[data-theme="dark"] .guides {
+  background: #14202E;
+}
+
+html[data-theme="dark"] .probleme {
+  background: #1B2734;
+  color: #F2ECDD;
+}
+
+html[data-theme="dark"] .btn-secondary {
+  color: var(--encre);
+  border-color: var(--encre);
+}
