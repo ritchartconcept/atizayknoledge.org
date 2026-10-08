@@ -283,3 +283,45 @@ html[data-theme="dark"] .btn-theme .icone-soleil { display: block; }
     .connexion { grid-template-columns: 1fr; }
     .connexion-visuel { display: none; }
   }
+
+/* ===== Dark mode ===== */
+html[data-theme="dark"] {
+  --sable: #14202E;
+  --encre: #F2ECDD;
+  --indigo: #6C8FC7;
+}
+
+html[data-theme="dark"] body {
+  background: #0F1824;
+}
+
+html[data-theme="dark"] .connexion-visuel {
+  background: #1B2734;
+}
+
+html[data-theme="dark"] .connexion-visuel h2,
+html[data-theme="dark"] .connexion-visuel p {
+  color: #F2ECDD;
+}
+
+html[data-theme="dark"] input[type="email"],
+html[data-theme="dark"] input[type="password"] {
+  background: #1B2734;
+  border-color: #2C3A4A;
+  color: var(--encre);
+}
+
+html[data-theme="dark"] .form-box .sous-titre,
+html[data-theme="dark"] .remember,
+html[data-theme="dark"] .lien-inscription {
+  color: #B9B3A5;
+}
+
+html[data-theme="dark"] .separateur {
+  color: #7d8794;
+}
+
+html[data-theme="dark"] .separateur::before,
+html[data-theme="dark"] .separateur::after {
+  background: #2C3A4A;
+}
