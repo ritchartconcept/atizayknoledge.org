@@ -296,3 +296,58 @@ html[data-theme="dark"] .btn-theme .icone-soleil { display: block; }
     .inscription-visuel { display: none; }
     .champ-ligne { grid-template-columns: 1fr; }
   }
+
+/* ===== Dark mode ===== */
+html[data-theme="dark"] {
+  --sable: #14202E;
+  --encre: #F2ECDD;
+  --indigo: #6C8FC7;
+}
+
+html[data-theme="dark"] body {
+  background: #0F1824;
+}
+
+html[data-theme="dark"] header {
+  border-bottom-color: #2C3A4A;
+}
+
+html[data-theme="dark"] .stat-card,
+html[data-theme="dark"] .table-guides,
+html[data-theme="dark"] .carte-explorer {
+  background: #1B2734;
+  border-color: #2C3A4A;
+}
+
+html[data-theme="dark"] .ligne-guide {
+  border-bottom-color: #2C3A4A;
+}
+
+html[data-theme="dark"] .ligne-guide.entete {
+  background: #14202E;
+  color: #9aa4b2;
+}
+
+html[data-theme="dark"] .bienvenue p,
+html[data-theme="dark"] .stat-label {
+  color: #B9B3A5;
+}
+
+/* Textes foncés sur fonds clairs : on fixe la couleur pour qu'elle ne change pas */
+html[data-theme="dark"] .badge-statut {
+  color: #1B2A4C;
+}
+
+html[data-theme="dark"] .avatar {
+  color: #0F1824;
+}
+
+html[data-theme="dark"] .statut-publie {
+  background: #1f3a2d;
+  color: #7fcf9f;
+}
+
+html[data-theme="dark"] .statut-attente {
+  background: #3a2f1a;
+  color: #e9b44c;
+}
