@@ -211,6 +211,29 @@
     background: #d32e3b;
   }
 
+/* Bouton en cours de chargement */
+.btn-submit:disabled {
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+.btn-submit.chargement::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  border: 2.5px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  vertical-align: -3px;
+  animation: tourner 0.7s linear infinite;
+}
+
+@keyframes tourner {
+  to { transform: rotate(360deg); }
+}
+
   .lien-connexion {
     text-align: center;
     font-size: 0.92rem;
