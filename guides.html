@@ -19,7 +19,18 @@
       <a href="guides.html" class="actif">Guides</a>
       <a href="index.html#metiers">Métiers</a>
       <a href="login.html">Se connecter</a>
-      <button id="toggle-theme" class="btn-theme" aria-label="Activer le mode sombre">🌙</button>
+      <button id="toggle-theme" class="btn-theme" aria-label="Changer de thème">
+  <!-- Lune : visible en mode clair -->
+  <svg class="icone-lune" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+  </svg>
+  <!-- Soleil : visible en mode sombre -->
+  <svg class="icone-soleil" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+          fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</button>
     </nav>
   </header>
 </div>
@@ -84,18 +95,15 @@
     const themeSauvegarde = localStorage.getItem('theme');
     if (themeSauvegarde === 'dark') {
       racine.setAttribute('data-theme', 'dark');
-      bouton.textContent = '☀️';
     }
 
     bouton.addEventListener('click', function () {
       const estSombre = racine.getAttribute('data-theme') === 'dark';
       if (estSombre) {
         racine.removeAttribute('data-theme');
-        bouton.textContent = '🌙';
         localStorage.setItem('theme', 'light');
       } else {
         racine.setAttribute('data-theme', 'dark');
-        bouton.textContent = '☀️';
         localStorage.setItem('theme', 'dark');
       }
     });
