@@ -62,36 +62,19 @@ nav a.actif {
 }
 
 .btn-theme {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 38px;
-  height: 38px;
   background: transparent;
   border: 1.5px solid var(--indigo);
   border-radius: 50%;
-  color: var(--indigo);
+  width: 38px;
+  height: 38px;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease;
 }
 
 .btn-theme:hover {
   background: rgba(27,42,76,0.08);
-  transform: rotate(15deg);
 }
-
-.btn-theme svg {
-  width: 19px;
-  height: 19px;
-  display: block;
-}
-
-/* Mode clair : on montre la lune, on cache le soleil */
-.btn-theme .icone-soleil { display: none; }
-
-/* Mode sombre : on inverse */
-html[data-theme="dark"] .btn-theme .icone-lune { display: none; }
-html[data-theme="dark"] .btn-theme .icone-soleil { display: block; }
 
 .btn {
   display: inline-block;
@@ -362,6 +345,45 @@ footer {
   display: flex;
   justify-content: space-between;
   border-top: 1px solid #e8ddc8;
+}
+
+
+/* Titres et sous-titres écrits dans un module */
+.bloc-titre {
+  font-family: 'Fraunces', serif;
+  font-size: 1.45rem;
+  color: var(--indigo);
+  margin: 36px 0 12px;
+}
+
+.bloc-soustitre {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--encre);
+  margin: 26px 0 8px;
+}
+
+/* Bandeau affiché en mode aperçu */
+.bandeau-apercu {
+  margin-top: 20px;
+  padding: 10px 16px;
+  background: #fdf1de;
+  border: 1px solid var(--or);
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: #6b5218;
+}
+
+html[data-theme="dark"] .bandeau-apercu {
+  background: #3a2f1a;
+  color: #e9b44c;
+}
+
+/* Description d'introduction d'un module */
+.module-intro {
+  font-size: 1.1rem;
+  color: #555;
 }
 
 /* Dark mode */
