@@ -4,7 +4,17 @@
 // --- 1. Récupérer le guide demandé via l'adresse : guide-detail.html?id=3 ---
 const params = new URLSearchParams(window.location.search);
 const idGuide = Number(params.get('id'));
-const guide = guidesDemo.find(function (g) { return g.id === idGuide; });
+const modeApercu = params.get('brouillon') === '1';
+
+let guide = null;
+if (modeApercu) {
+  // Aperçu depuis la page "Proposer un guide" : le contenu vient du navigateur
+  try { guide = JSON.parse(localStorage.getItem('apercuGuide')); } catch (e) {}
+} else {
+  guide = guidesDemo.find(function (g) { return g.id === idGuide; });
+}
+// Un guide sans module ne peut pas s'afficher
+if (guide && (!guide.modules || guide.modules.length === 0)) guide = null;
 
 const zoneIntrouvable = document.getElementById('introuvable');
 const zoneContenu = document.getElementById('guide-contenu');
@@ -22,6 +32,12 @@ if (!guide) {
 
 // --- 2. En-tête du guide (titre, catégorie, auteur, vues) ---
 function afficherEnteteGuide() {
+  if (modeApercu) {
+    const bandeau = document.createElement('div');
+    bandeau.className = 'bandeau-apercu';
+    bandeau.textContent = "Aperçu : ce guide n'est pas encore publié.";
+    zoneContenu.insertBefore(bandeau, zoneContenu.firstChild);
+  }
   document.title = guide.titre + " — Atizay Knowledge";
   document.getElementById('guide-categorie').textContent = labelsCategories[guide.categorie] || guide.categorie;
   document.getElementById('guide-titre').textContent = guide.titre;
@@ -69,6 +85,14 @@ function afficherModule(index) {
   // pour qu'un contenu écrit par un membre ne puisse jamais injecter de code.
   const conteneur = document.getElementById('module-blocs');
   conteneur.innerHTML = '';
+
+  // Description du module (champ facultatif de la page "Proposer un guide")
+  if (module.description) {
+    const intro = document.createElement('p');
+    intro.className = 'bloc-texte module-intro';
+    intro.textContent = module.description;
+    conteneur.appendChild(intro);
+  }
   module.blocs.forEach(function (bloc) {
     const element = creerBloc(bloc);
     if (element) conteneur.appendChild(element);
@@ -92,6 +116,20 @@ function afficherModule(index) {
 
 // --- 5. Création d'un bloc selon son type ---
 function creerBloc(bloc) {
+  if (bloc.type === 'titre') {
+    const h = document.createElement('h3');
+    h.className = 'bloc-titre';
+    h.textContent = bloc.contenu;
+    return h;
+  }
+
+  if (bloc.type === 'soustitre') {
+    const h = document.createElement('h4');
+    h.className = 'bloc-soustitre';
+    h.textContent = bloc.contenu;
+    return h;
+  }
+
   if (bloc.type === 'texte') {
     const p = document.createElement('p');
     p.className = 'bloc-texte';
