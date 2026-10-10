@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Proposer un guide — Atizay Knowledge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="assets/icon/favicon_io/android-chrome-512x512.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/proposer-guide.css">
+</head>
+
+<body>
+
+<div class="wrap">
+  <header>
+    <a href="index.html" class="logo">Atizay Knowledge</a>
+    <nav>
+      <a href="guides.html">Guides</a>
+      <a href="espace-membre.html">Mon espace</a>
+      <button id="toggle-theme" class="btn-theme" aria-label="Changer de thème">
+        <!-- Lune : visible en mode clair -->
+        <svg class="icone-lune" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+        </svg>
+        <!-- Soleil : visible en mode sombre -->
+        <svg class="icone-soleil" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+</div>
+
+<div class="wrap page-proposer">
+
+  <h1>Proposer un guide</h1>
+  <p class="intro">Remplis les informations, construis ton guide avec des blocs de texte, d'images et de vidéos, puis soumets-le. Je le relis avant publication.</p>
+
+  <!-- 1. Informations générales -->
+  <section class="carte-form">
+    <h2>1. Informations générales</h2>
+
+    <div class="champ">
+      <label for="guide-titre">Titre du guide</label>
+      <input type="text" id="guide-titre" placeholder="Ex : Comment fixer le prix de sa première illustration">
+    </div>
+
+    <div class="champ">
+      <label for="guide-categorie">Catégorie</label>
+      <select id="guide-categorie">
+        <option value="techniques-base">Techniques de base en dessin</option>
+        <option value="storyboard">storyboard</option>
+        <option value="contexte-local">Trouver ses outilles</option>
+        <option value="histoire">Histoire de l'art</option>
+        <option value="business">Vendre son art</option>
+        <option value="portraits">Portrait</option>
+        <option value="bande-dessiner">Bande dessiner</option>
+        <option value="anatomy">Anatomy humaine</option>
+        <option value="techniques-couleur">Colorimetrie</option>
+        <option value="design">design</option>
+        <option value="concept-art">Concept art</option>
+        <option value="photographie">Photographie</option>
+        <option value="videographie">Videographie</option>
+        <option value="game-design">Game design</option>
+        <option value="game-dev">Game-dev</option>
+        <option value="fixer-prix">Fixer un prix</option>
+      </select>
+    </div>
+
+    <div class="champ">
+      <label for="guide-resume">Résumé (1 à 2 phrases)</label>
+      <textarea id="guide-resume" rows="3" placeholder="De quoi parle ton guide ?"></textarea>
+    </div>
+  </section>
+
+  <!-- 2. Contenu : les modules sont ajoutés ici par js/proposer-guide.js -->
+  <section class="carte-form">
+    <h2>2. Contenu du guide</h2>
+    <p class="aide">Un guide est découpé en modules (mini-cours). Dans chaque module, ajoute autant de blocs que tu veux.</p>
+
+    <div id="modules"></div>
+
+    <button type="button" class="btn btn-secondaire" id="btn-ajouter-module">+ Ajouter un module</button>
+  </section>
+
+  <!-- Message de confirmation / erreur -->
+  <div class="message" id="message"></div>
+
+  <!-- Actions -->
+  <div class="actions-finales">
+    <button type="button" class="btn btn-secondaire" id="btn-apercu">Voir comme un lecteur</button>
+    <button type="button" class="btn btn-principal" id="btn-soumettre">Soumettre ma proposition</button>
+  </div>
+
+  <footer>
+    <span>Atizay Knowledge</span>
+    <span>Contact · À propos</span>
+  </footer>
+</div>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/proposer-guide.js"></script>
+<script src="js/theme.js"></script>
+
+
+
+</body>
+</html>
