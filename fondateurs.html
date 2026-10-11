@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contributeurs fondateurs — Atizay Knowledge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="icon" href="assets/icon/favicon_io/android-chrome-512x512.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/fondateurs.css">
+</head>
+
+<body>
+
+<div class="wrap">
+  <header>
+    <a href="index.html" class="logo">Atizay Knowledge</a>
+    <nav>
+      <a href="guides.html">Guides</a>
+      <a href="fondateurs.html" class="actif">Fondateurs</a>
+      <a href="login.html">Se connecter</a>
+      <button id="toggle-theme" class="btn-theme" aria-label="Changer de thème">
+        <svg class="icone-lune" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/>
+        </svg>
+        <svg class="icone-soleil" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </nav>
+  </header>
+</div>
+
+<!-- ===== En-tête de la page + compteur de places ===== -->
+<section class="hero-fondateurs">
+  <div class="wrap">
+    <p class="eyebrow">Programme de lancement</p>
+    <h1>Les contributeurs fondateurs</h1>
+    <p class="hero-texte">
+      Les <span class="nb-places">25</span> premiers artistes qui construisent Atizay Knowledge.
+      Leur nom reste attaché à la plateforme pour toujours.
+    </p>
+
+    <div class="compteur">
+      <div class="compteur-chiffres">
+        <strong id="places-prises">0</strong>
+        <span>/ <span class="nb-places">25</span> places attribuées</span>
+      </div>
+      <div class="compteur-barre">
+        <div class="compteur-remplie" id="barre-places"></div>
+      </div>
+      <p class="compteur-restantes" id="places-restantes"></p>
+    </div>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <!-- ===== Les fondateurs (cartes générées par js/fondateurs.js) ===== -->
+  <section class="bloc-section">
+    <h2>Ils construisent la plateforme</h2>
+    <div class="grille-fondateurs" id="grille-fondateurs">
+      <p class="chargement-texte">Chargement...</p>
+    </div>
+  </section>
+
+  <!-- ===== Critères ===== -->
+  <section class="bloc-section" id="criteres">
+    <h2>Comment devenir contributeur fondateur</h2>
+    <p class="section-intro">
+      Il y a <span class="nb-places">25</span> places, et cinq conditions à remplir. Toutes sont obligatoires.
+    </p>
+
+    <ol class="criteres">
+      <li>
+        <h3>Une pratique réelle</h3>
+        <p>Artiste visuel avec au moins 2 ans de pratique et un portfolio consultable, lié à la scène haïtienne (en Haïti ou dans la diaspora).</p>
+      </li>
+      <li>
+        <h3>Un profil complet</h3>
+        <p>Compte créé sur la plateforme, avec ton nom, ta discipline, une bio courte et le lien de ton portfolio.</p>
+      </li>
+      <li>
+        <h3>Un guide publié</h3>
+        <p>Au moins un guide validé et publié pendant la période de lancement.</p>
+      </li>
+      <li>
+        <h3>Un engagement dans la durée</h3>
+        <p>Une contribution par trimestre pendant 12 mois : nouveau guide, mise à jour d'un guide existant ou relecture.</p>
+      </li>
+      <li>
+        <h3>Le respect de la charte</h3>
+        <p>Contenu original, partage sincère, respect des conditions d'utilisation et de la propriété intellectuelle des autres artistes.</p>
+      </li>
+    </ol>
+
+    <p class="note-attribution">
+      <strong>Comment sont attribués les numéros ?</strong>
+      Dans l'ordre de validation du premier guide publié : le premier guide validé donne le n°1, le suivant le n°2, et ainsi de suite.
+    </p>
+  </section>
+
+  <!-- ===== Avantages ===== -->
+  <section class="bloc-section">
+    <h2>Ce que ça t'apporte</h2>
+
+    <div class="avantages-grille">
+      <div class="avantage">
+        <h3>Un badge et un numéro uniques</h3>
+        <p>« Contributeur fondateur » et ton numéro, de 1 à <span class="nb-places">25</span>. Ils ne changent jamais.</p>
+      </div>
+      <div class="avantage">
+        <h3>Une page à ton nom</h3>
+        <p>Ta carte sur cette page, avec ta discipline, ta bio et un lien vers ton portfolio.</p>
+      </div>
+      <div class="avantage">
+        <h3>Ton nom sur chacun de tes guides</h3>
+        <p>Tes guides sont signés, ce qui construit ta réputation auprès des artistes et des clients.</p>
+      </div>
+      <div class="avantage">
+        <h3>Priorité sur les sujets de guides</h3>
+        <p>Quand plusieurs personnes proposent le même guide, ta candidature est examinée en premier.</p>
+      </div>
+      <div class="avantage">
+        <h3>Accès en avant-première</h3>
+        <p>Tu testes les nouvelles fonctionnalités et le contenu premium avant tout le monde.</p>
+      </div>
+      <div class="avantage">
+        <h3>Une voix dans les décisions</h3>
+        <p>Tu donnes ton avis sur l'évolution de la plateforme avant les grandes décisions.</p>
+      </div>
+    </div>
+
+    <p class="note-attribution">
+      Le titre reste à vie. Les avantages de priorité et d'avant-première restent liés à ton engagement :
+      après 12 mois sans contribution, tu gardes ton numéro mais pas ces deux avantages.
+    </p>
+  </section>
+
+  <!-- ===== Appel à l'action ===== -->
+  <section class="cta-fondateur">
+    <div class="cta-contenu">
+      <h2>Ta place est peut-être encore libre</h2>
+      <p>Crée ton compte, propose ton premier guide, et fais partie de ceux qui construisent le savoir de l'art visuel haïtien.</p>
+    </div>
+    <div class="cta-boutons">
+      <a href="proposer-guide.html" class="btn btn-clair">Proposer un guide</a>
+      <a href="inscription.html" class="btn btn-contour">Créer un compte</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>Atizay Knowledge</span>
+    <span>Contact · À propos</span>
+  </footer>
+
+</main>
+
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="js/supabase-client.js"></script>
+<script src="js/fondateurs.js"></script>
+<script src="js/theme.js"></script>
+
+</body>
+</html>
