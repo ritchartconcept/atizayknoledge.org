@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // false = la proposition reste dans ce navigateur (test)
   // true  = elle est envoyée dans la table "propositions" de Supabase
-  const UTILISER_SUPABASE = false;
+  const UTILISER_SUPABASE = true;
 
   // Les types de blocs et le nom affiché sur chaque bloc
   const LIBELLES_BLOCS = {
