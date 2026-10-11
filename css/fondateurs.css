@@ -1,0 +1,593 @@
+:root {
+  --indigo: #1B2A4C;
+  --corail: #E63946;
+  --sable: #FAF3E7;
+  --or: #E9B44C;
+  --encre: #1A1A1A;
+  --vert: #3A7D5C;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  color: var(--encre);
+  background: var(--sable);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  line-height: 1.15;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 0;
+  border-bottom: 1px solid #e8ddc8;
+}
+
+.logo {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--indigo);
+  text-decoration: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+}
+
+nav a {
+  color: var(--encre);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+nav a:hover { color: var(--corail); }
+
+nav a.actif {
+  color: var(--corail);
+  font-weight: 600;
+}
+
+/* =========================
+   BOUTON THEME
+========================= */
+
+.btn-theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  border: 1.5px solid var(--indigo);
+  border-radius: 50%;
+  color: var(--indigo);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn-theme:hover {
+  background: rgba(27,42,76,0.08);
+  transform: rotate(15deg);
+}
+
+.btn-theme svg {
+  width: 19px;
+  height: 19px;
+  display: block;
+}
+
+.btn-theme .icone-soleil { display: none; }
+html[data-theme="dark"] .btn-theme .icone-lune { display: none; }
+html[data-theme="dark"] .btn-theme .icone-soleil { display: block; }
+
+/* =========================
+   EN-TÊTE + COMPTEUR
+========================= */
+
+.hero-fondateurs {
+  padding: 64px 0 56px;
+  background: var(--indigo);
+  color: var(--sable);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Grand cercle doré décoratif */
+.hero-fondateurs::before {
+  content: "";
+  position: absolute;
+  top: -35%;
+  right: -10%;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: var(--or);
+  opacity: 0.22;
+}
+
+.hero-fondateurs .wrap {
+  position: relative;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--or);
+}
+
+.hero-fondateurs h1 {
+  margin-top: 10px;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  color: var(--sable);
+}
+
+.hero-texte {
+  margin-top: 16px;
+  max-width: 56ch;
+  font-size: 1.1rem;
+  opacity: 0.92;
+}
+
+.compteur {
+  margin-top: 36px;
+  max-width: 440px;
+  padding: 20px 22px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 10px;
+}
+
+.compteur-chiffres {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.compteur-chiffres strong {
+  font-family: 'Fraunces', serif;
+  font-size: 2.2rem;
+  color: var(--or);
+}
+
+.compteur-barre {
+  height: 8px;
+  margin-top: 10px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.compteur-remplie {
+  height: 100%;
+  width: 0%;
+  background: var(--or);
+  border-radius: 4px;
+  transition: width 0.8s ease;
+}
+
+.compteur-restantes {
+  margin-top: 10px;
+  font-size: 0.88rem;
+  opacity: 0.9;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.bloc-section {
+  padding: 56px 0 8px;
+}
+
+.bloc-section h2 {
+  font-size: 1.7rem;
+  color: var(--indigo);
+}
+
+.section-intro {
+  margin-top: 8px;
+  color: #555;
+}
+
+/* =========================
+   GRILLE DES FONDATEURS
+========================= */
+
+.grille-fondateurs {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 18px;
+}
+
+.chargement-texte {
+  color: #888;
+  grid-column: 1 / -1;
+}
+
+.fondateur-carte {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px 20px 20px;
+  background: white;
+  border: 1px solid #e8ddc8;
+  border-radius: 12px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fondateur-carte:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(27,42,76,0.1);
+}
+
+.fondateur-rang {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #8a8472;
+}
+
+.fondateur-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: white;
+  margin-bottom: 14px;
+}
+
+/* Quatre couleurs d'avatar, choisies selon le numéro */
+.couleur-1 { background: var(--indigo); }
+.couleur-2 { background: var(--corail); }
+.couleur-3 { background: var(--vert); }
+.couleur-0 { background: #b8861f; }
+
+.fondateur-carte h3 {
+  font-size: 1.1rem;
+  color: var(--encre);
+}
+
+.fondateur-discipline {
+  margin-top: 8px;
+  padding: 3px 12px;
+  background: #fdf1de;
+  color: #8a5d12;
+  border-radius: 20px;
+  font-size: 0.76rem;
+  font-weight: 600;
+}
+
+.fondateur-bio {
+  margin-top: 12px;
+  font-size: 0.88rem;
+  color: #555;
+  /* coupe la bio après 3 lignes */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.fondateur-date {
+  margin-top: auto;
+  padding-top: 14px;
+  font-size: 0.78rem;
+  color: #999;
+}
+
+.fondateur-lien {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--corail);
+  text-decoration: none;
+}
+
+.fondateur-lien:hover { text-decoration: underline; }
+
+/* Place encore libre */
+.fondateur-carte.vide {
+  background: transparent;
+  border: 1.5px dashed #cfc3a6;
+}
+
+.fondateur-carte.vide:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.fondateur-carte.vide .fondateur-avatar {
+  background: transparent;
+  border: 1.5px dashed #cfc3a6;
+  color: #b3a888;
+}
+
+.fondateur-carte.vide h3 { color: #8a8472; }
+
+/* =========================
+   CRITÈRES
+========================= */
+
+.criteres {
+  margin-top: 28px;
+  list-style: none;
+  counter-reset: critere;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.criteres li {
+  counter-increment: critere;
+  position: relative;
+  padding: 22px 22px 22px 70px;
+  background: white;
+  border: 1px solid #e8ddc8;
+  border-radius: 12px;
+}
+
+/* Le numéro est ajouté automatiquement par le CSS */
+.criteres li::before {
+  content: counter(critere);
+  position: absolute;
+  left: 20px;
+  top: 22px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--indigo);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+}
+
+.criteres h3 {
+  font-size: 1.05rem;
+  color: var(--indigo);
+}
+
+.criteres p {
+  margin-top: 6px;
+  font-size: 0.92rem;
+  color: #555;
+}
+
+.note-attribution {
+  margin-top: 22px;
+  padding: 16px 20px;
+  background: #fdf1de;
+  border: 1px solid #ecd49a;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #6b5218;
+}
+
+/* =========================
+   AVANTAGES
+========================= */
+
+.avantages-grille {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.avantage {
+  padding: 22px;
+  background: white;
+  border: 1px solid #e8ddc8;
+  border-left: 4px solid var(--or);
+  border-radius: 10px;
+}
+
+.avantage h3 {
+  font-size: 1.05rem;
+  color: var(--indigo);
+}
+
+.avantage p {
+  margin-top: 6px;
+  font-size: 0.92rem;
+  color: #555;
+}
+
+/* =========================
+   APPEL À L'ACTION
+========================= */
+
+.cta-fondateur {
+  margin-top: 64px;
+  padding: 44px;
+  background: var(--corail);
+  color: white;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.cta-contenu h2 {
+  font-size: 1.7rem;
+  color: white;
+}
+
+.cta-contenu p {
+  margin-top: 8px;
+  max-width: 48ch;
+  opacity: 0.95;
+}
+
+.cta-boutons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 13px 24px;
+  border-radius: 6px;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-clair {
+  background: white;
+  color: var(--corail);
+  border: 1.5px solid white;
+}
+
+.btn-clair:hover { background: #fff3f3; }
+
+.btn-contour {
+  background: transparent;
+  color: white;
+  border: 1.5px solid white;
+}
+
+.btn-contour:hover { background: rgba(255,255,255,0.15); }
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  margin-top: 56px;
+  padding: 28px 0 48px;
+  font-size: 0.9rem;
+  color: #666;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #e8ddc8;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+html[data-theme="dark"] {
+  --sable: #14202E;
+  --encre: #F2ECDD;
+  --indigo: #6C8FC7;
+}
+
+html[data-theme="dark"] body { background: #0F1824; }
+
+html[data-theme="dark"] header,
+html[data-theme="dark"] footer { border-color: #2C3A4A; }
+
+/* L'en-tête garde un fond sombre en mode sombre aussi */
+html[data-theme="dark"] .hero-fondateurs {
+  background: #1B2734;
+  color: #F2ECDD;
+}
+
+html[data-theme="dark"] .hero-fondateurs h1 { color: #F2ECDD; }
+
+html[data-theme="dark"] .fondateur-carte,
+html[data-theme="dark"] .criteres li,
+html[data-theme="dark"] .avantage {
+  background: #1B2734;
+  border-color: #2C3A4A;
+}
+
+html[data-theme="dark"] .avantage { border-left-color: var(--or); }
+
+html[data-theme="dark"] .fondateur-carte.vide {
+  background: transparent;
+  border-color: #394858;
+}
+
+html[data-theme="dark"] .fondateur-carte.vide .fondateur-avatar {
+  border-color: #394858;
+  color: #6f7c8a;
+}
+
+html[data-theme="dark"] .section-intro,
+html[data-theme="dark"] .fondateur-bio,
+html[data-theme="dark"] .criteres p,
+html[data-theme="dark"] .avantage p,
+html[data-theme="dark"] footer { color: #B9B3A5; }
+
+html[data-theme="dark"] .fondateur-date,
+html[data-theme="dark"] .fondateur-rang,
+html[data-theme="dark"] .chargement-texte { color: #8896a5; }
+
+html[data-theme="dark"] .fondateur-avatar,
+html[data-theme="dark"] .criteres li::before { color: #0F1824; }
+
+html[data-theme="dark"] .fondateur-discipline {
+  background: #3a2f1a;
+  color: #e9b44c;
+}
+
+html[data-theme="dark"] .note-attribution {
+  background: #3a2f1a;
+  border-color: #5c4a22;
+  color: #e9b44c;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+  .hero-fondateurs { padding: 44px 0 40px; }
+  .cta-fondateur { padding: 28px 22px; }
+  .criteres li { padding-left: 64px; }
+}
+
+@media (max-width: 600px) {
+  nav a:not(.actif) { display: none; }
+
+  footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
